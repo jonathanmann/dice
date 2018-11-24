@@ -1,6 +1,7 @@
 var svgDocument
 var d1 = 1
 var d2 = 1
+var red = false
 
 function on_load(evt){
 	O=evt.target
@@ -21,6 +22,14 @@ function hide(id){
 }
 
 function roll_dice(){
+	if (red){
+		red = false
+		hide("red_dot")
+	} else {
+		red = true
+		show("red_dot")
+	}
+
 	hide("d1_" + d1)
 	hide("d2_" + d2)
 	d1 = Math.floor((Math.random() * 6) + 1)
